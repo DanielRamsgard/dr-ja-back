@@ -20,7 +20,7 @@ def send_res(form):
         {
         "to": [
             {
-            "email": "jaspen2@verizon.net"
+            "email": "dramsgard@gmail.com"
             }
         ],
         "subject": "Patient Forms",
