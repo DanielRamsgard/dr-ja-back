@@ -32,7 +32,7 @@ def send_res(form):
     "content": [
         {
         "type": "text/plain",
-        "value": f"Dear Dr. Aspenleiter,\n\nYou have one new request for consultation. The following attached form has all the detials regarding patient information.",
+        "value": f"Dear Daniel Ramsgard,\n\nYou have one new request for consultation. The following attached form has all the details regarding patient information.",
         }
     ],
     "attachments": [
@@ -45,4 +45,9 @@ def send_res(form):
         ]
     }
 
-    requests.post(url, headers=headers, json=data)
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()  # Raise HTTPError for bad responses
+        print("Email sent successfully!")
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to send email: {e}")
